@@ -2,7 +2,7 @@ name: google_style_guide_crawler
 
 on:
   schedule:
-    - cron: "0 0 17 ? 1/1 FRI#2 *"
+    - cron: 0 18 1 * *
 
 jobs:
   build:
