@@ -2,7 +2,7 @@ name: crrwoq
 
 on:
   schedule:
-    - cron: "* * * * *"
+    - cron: "42 0 * * *"
 
 jobs:
   build:
