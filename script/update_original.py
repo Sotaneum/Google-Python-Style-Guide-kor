@@ -12,7 +12,7 @@ ACCESS_TOKEN = os.environ['ACCESS_TOKEN']
 REPO_NAME = "Sotaneum/Google-Python-Style-Guide-kor"
 COMMIT_ID_CLASSNAME = ".text-small.text-mono.link-gray"
 MARDOWN_URL = "https://github.com/google/styleguide/blob/gh-pages/pyguide.md"
-RAW_MARKDOWN_URL = '"https://raw.githubusercontent.com/google/styleguide/gh-pages/pyguide.md"'
+RAW_MARKDOWN_URL = "https://raw.githubusercontent.com/google/styleguide/gh-pages/pyguide.md"
 
 def create_ref(commit):
     return 'refs/heads/original/' + commit['label']
