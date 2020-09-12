@@ -14,10 +14,10 @@ COMMIT_ID_CLASSNAME = ".text-small.text-mono.link-gray"
 MARDOWN_URL = "https://github.com/google/styleguide/blob/gh-pages/pyguide.md"
 RAW_MARKDOWN_URL = "https://raw.githubusercontent.com/google/styleguide/gh-pages/pyguide.md"
 
-def create_ref(commit):
+def create_ref_name(commit):
     return 'refs/heads/original/' + commit['label']
 
-def create_branch(commit):
+def create_branch_name(commit):
     return 'original/' + commit['label']
 
 def create_commit_title(commit):
@@ -52,7 +52,7 @@ def get_repo():
     return Github(ACCESS_TOKEN).get_repo(REPO_NAME)
 
 def create_branch(repo, commit):
-    ref = create_ref(commit)
+    ref = create_ref_name(commit)
     branch = repo.get_branch(branch=MASTER_BRANCH)
 
     try:
@@ -62,7 +62,7 @@ def create_branch(repo, commit):
     return True
 
 def create_commit(repo, commit):
-    branch = create_branch(commit)
+    branch = create_branch_name(commit)
     title = create_commit_title(commit)
     text = open(ORIGINAL_MARKDOWN_PATH, "r").read()
     contents = repo.get_contents(ORIGINAL_MARKDOWN_PATH, ref=MASTER_REF)
@@ -71,7 +71,7 @@ def create_commit(repo, commit):
 
 def create_pull_request(repo, commit):
     body = create_pr_body()
-    head = create_branch(commit)
+    head = create_branch_name(commit)
     title = create_pr_title(commit)
 
     repo.create_pull(title=title, body=body, head=head, base=MASTER_BRANCH)
