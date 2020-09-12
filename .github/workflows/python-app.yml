@@ -1,8 +1,9 @@
 name: crrwoq
 
 on:
-  schedule:
-    - cron: "42 0 * * *"
+  release:
+    # Only use the types keyword to narrow down the activity types that will trigger your workflow.
+    types: [published, created, edited]
 
 jobs:
   build:
